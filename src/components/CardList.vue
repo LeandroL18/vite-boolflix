@@ -16,7 +16,10 @@ export default{
 </script>
 
 <template>
-    <ProductCard/>
+     <!-- visualizzazione cards -->
+     <div v-for="(card,i) in store.cardlistArray" :key="i">
+                    <ProductCard :info="card"/>
+                </div>
 </template>
 
 <style lang="scss" scoped>
