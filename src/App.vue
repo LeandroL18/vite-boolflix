@@ -1,35 +1,46 @@
 <script>
-  import axios from 'axios'
+import axios from 'axios'
 
-  import AppHeader from './components/AppHeader.vue'
-  import AppSearch from './components/AppSearch.vue'
-  import CardList from './components/CardList.vue'
+import AppSearch from './components/AppSearch.vue'
+import CardList from './components/CardList.vue'
 
-  import {store} from './store'
+import {store} from './store'
 
-  export default{
-    components:{
-      AppHeader,
-      AppSearch,
-      CardList,
-    },
-    data(){
-      return{
-        store
-      }
+export default{
+  components:{
+    AppSearch,
+    CardList,
+  },
+  data(){
+    return{
+      store
     }
+  },
+  methods:{
+    getCards(){
+      axios.get(`${store.apiURL}?api_key=${store.apiKey}&query=${store.query}`)
+      
+      .then((res) => {
+        console.log(res.data.results);
+        store.cardlistArray = res.data.results;
+      })
+
+      .catch((err) => {
+        console.log("Errori = ",err);
+      })
+    }
+  },
+  created(){
+    this.getCards();
   }
+}
 </script>
 
-<template>ù
-<header>
-    <AppHeader/>
-  </header>
-
+<template>
   <main>
-    <AppSearch/>
+    <AppSearch @filtro="getCards"/>
+    <CardList/>
   </main>
-  
 </template>
 
 <style lang="scss">

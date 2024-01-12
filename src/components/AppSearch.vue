@@ -1,13 +1,8 @@
 <script>
 import {store} from '../store'
 
-import CardList from './CardList.vue';
-
 export default{
     name:'AppSearch',
-    components:{
-        CardList
-    },
     data(){
         return{
             store
@@ -17,7 +12,8 @@ export default{
 </script>
 
 <template>
-    <CardList/>
+    <input type="text" placeholder="Inserisci un titolo" v-model="store.query">
+    <button @click="$emit('filtro')">Cerca</button>
 </template>
 
 <style lang="scss" scoped>
