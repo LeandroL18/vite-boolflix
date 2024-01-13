@@ -43,5 +43,9 @@ import { version } from 'vue';
 <style lang="scss" scoped>
     @use '../styles/partials/variables' as *;
     @use '../styles/partials/mixins' as *;
+
+    div{
+        margin-bottom: 20px;
+    }
 </style>
 
