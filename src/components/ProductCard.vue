@@ -28,7 +28,7 @@ import { version } from 'vue';
 
 <template>
     <!-- card film -->
-    <img :src="'https://image.tmdb.org/t/p/w300'+info.backdrop_path" alt="copertina">
+    <img :src="'https://image.tmdb.org/t/p/w342'+info.backdrop_path" alt="copertina">
     <h3>{{ info.title }}</h3>
     <h4>{{ info.original_title }}</h4>
 

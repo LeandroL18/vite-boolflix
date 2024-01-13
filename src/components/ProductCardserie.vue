@@ -30,7 +30,7 @@ import { version } from 'vue';
     
     <!-- card serieTV -->
     <div>
-        <img :src="'https://image.tmdb.org/t/p/w300'+component.backdrop_path" alt="copertina">
+        <img :src="'https://image.tmdb.org/t/p/w342'+component.backdrop_path" alt="copertina">
         <h3>{{ component.name }}</h3>
         <h4>{{ component.original_name }}</h4>
         <img id="bandierina" v-for="(flag,i) in flags" :src="flags[i].lang ===component.original_language ? flags[i].src : ''" :alt="flags[i].lang === component.original_language ? flags[i].lang : ''">
