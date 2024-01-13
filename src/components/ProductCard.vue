@@ -28,11 +28,13 @@ import { version } from 'vue';
 
 <template>
     <!-- card film -->
+    <img :src="'https://image.tmdb.org/t/p/w300'+info.backdrop_path" alt="copertina">
     <h3>{{ info.title }}</h3>
     <h4>{{ info.original_title }}</h4>
 
-    <img v-for="(flag,i) in flags" :src="flags[i].lang === info.original_language ? flags[i].src : ''" :alt="flags[i].lang === info.original_language ? flags[i].lang : ''">
+    <img id="bandierina" v-for="(flag,i) in flags" :src="flags[i].lang === info.original_language ? flags[i].src : ''" :alt="flags[i].lang === info.original_language ? flags[i].lang : ''">
 
+    <h5>{{ info.original_language }}</h5>
     <h5>{{ info.vote_average }}</h5>
     
 </template>
