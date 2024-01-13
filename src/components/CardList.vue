@@ -1,12 +1,14 @@
 <script>
 import {store} from '../store'
 import ProductCard from './ProductCard.vue'
+import ProductCardserie from './ProductCardserie.vue';
 
 export default{
     name:'CardList',
     components:{
-        ProductCard,
-    },
+    ProductCard,
+    ProductCardserie
+},
     data(){
         return{
             store
@@ -16,10 +18,15 @@ export default{
 </script>
 
 <template>
-     <!-- visualizzazione cards -->
-     <div v-for="(card,i) in store.cardlistArray" :key="i">
-                    <ProductCard :info="card"/>
-                </div>
+    <!-- visualizzazione cards -->
+    <h1>Film</h1>
+    <div v-for="(film,i) in store.films" :key="i">
+        <ProductCard :info="film"/>
+    </div>
+    <h1>Serie TV</h1>
+    <div v-for="(item,i) in store.serieTV" :key="i">
+        <ProductCardserie :component="item"/>
+    </div>
 </template>
 
 <style lang="scss" scoped>

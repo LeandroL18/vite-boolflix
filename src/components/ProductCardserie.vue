@@ -2,9 +2,9 @@
 import { version } from 'vue';
 
     export default{
-        name:'ProductCard',
+        name:'ProductCardserie',
         props:{
-            info: Object,
+            component: Object
         },
         data(){
             return{ 
@@ -27,14 +27,17 @@ import { version } from 'vue';
 </script>
 
 <template>
-    <!-- card film -->
-    <h3>{{ info.title }}</h3>
-    <h4>{{ info.original_title }}</h4>
-
-    <img v-for="(flag,i) in flags" :src="flags[i].lang === info.original_language ? flags[i].src : ''" :alt="flags[i].lang === info.original_language ? flags[i].lang : ''">
-
-    <h5>{{ info.vote_average }}</h5>
     
+    <!-- card serieTV -->
+    <div>
+        <img src="" alt="img">
+        <h3>{{ component.name }}</h3>
+        <h4>{{ component.original_name }}</h4>
+        <img v-for="(flag,i) in flags" :src="flags[i].lang ===component.original_language ? flags[i].src : ''" :alt="flags[i].lang === component.original_language ? flags[i].lang : ''">
+
+        <h5>{{ component.original_language }}</h5>
+        <h5>{{ component.vote_average }}</h5>
+    </div>
 </template>
 
 <style lang="scss" scoped>

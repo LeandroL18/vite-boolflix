@@ -17,12 +17,25 @@ export default{
     }
   },
   methods:{
-    getCards(){
-      axios.get(`${store.apiURL}?api_key=${store.apiKey}&query=${store.query}`)
+    getFilm(){
+      axios.get(`${store.apiURLfilm}?api_key=${store.apiKey}&query=${store.query}`)
       
       .then((res) => {
-        console.log(res.data.results);
-        store.cardlistArray = res.data.results;
+        store.films = res.data.results;
+        console.log(store.films);
+      })
+
+      .catch((err) => {
+        console.log("Errori = ",err);
+      })
+    },
+
+    getSerieTV(){
+      axios.get(`${store.apiURLserie}?api_key=${store.apiKey}&query=${store.query}`)
+      
+      .then((res) => {
+        store.serieTV = res.data.results;
+        console.log(store.serieTV);
       })
 
       .catch((err) => {
@@ -31,14 +44,15 @@ export default{
     }
   },
   created(){
-    this.getCards();
+    this.getFilm();
+    this.getSerieTV();
   }
 }
 </script>
 
 <template>
   <main>
-    <AppSearch @filtro="getCards"/>
+    <AppSearch @filtro="getFilm" @filter="getSerieTV" />
     <CardList/>
   </main>
 </template>
